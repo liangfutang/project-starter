@@ -15,8 +15,80 @@
         <module>nb-spring-boot-starter-jdbc</module>
     </modules>
 
+    <properties>
+        <nb.logback.version>1.0.8</nb.logback.version>
+
+        <spring.version>5.0.7.RELEASE</spring.version>
+        <spring.boot.version>2.0.3.RELEASE</spring.boot.version>
+        <spring.cloud.version>2.0.1.RELEASE</spring.cloud.version>
+        <druid.version>1.1.16</druid.version>
+        <dubbo-version>2.7.3</dubbo-version>
+        <mybatis.plus.version>3.0.6</mybatis.plus.version>
+        <mysql.version>5.1.21</mysql.version>
+    </properties>
+
     <dependencyManagement>
         <dependencies>
+            <!--spring使用指定版本-->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-framework-bom</artifactId>
+                <version>${spring.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!--指定springboot版本-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--druid连接池-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis.plus.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+
+            <!-- lettuce pool 缓存连接池 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-pool2</artifactId>
+                <version>2.5.0</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>4.0.1</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/cglib/cglib -->
+            <dependency>
+                <groupId>cglib</groupId>
+                <artifactId>cglib</artifactId>
+                <version>3.2.10</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.16.18</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>
