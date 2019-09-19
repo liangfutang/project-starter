@@ -51,8 +51,11 @@ public class WebConfiguration {
         return registration;
     }
 
+    /**
+     * 注册traceID
+     * @return
+     */
     @Bean
-    @ConditionalOnMissingBean(name = {"someFilterRegistration", "sofaCondition"})
     public FilterRegistrationBean traceIdFilter() {
         FilterRegistrationBean<Filter> registration = new FilterRegistrationBean<>();
         registration.setFilter(new TraceIdFilter());
