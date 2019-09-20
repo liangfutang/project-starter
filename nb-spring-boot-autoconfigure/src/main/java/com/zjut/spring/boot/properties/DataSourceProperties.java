@@ -55,7 +55,7 @@ public class DataSourceProperties {
     /**
      * 配置文件路径
      */
-    @Value("${mybatis.mapperLocations:classpath:com/ecarx/docking/biz/mapper/*.xml}")
+    @Value("${mybatis.mapperLocations:classpath:mapper/*.xml}")
     private String mapperLocations;
 
     /**
