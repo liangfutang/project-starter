@@ -31,6 +31,29 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- 控制版本 -->
+            <dependency>
+                <groupId>com.zjut.spring.boot</groupId>
+                <artifactId>nb-spring-boot-autoconfigure</artifactId>
+                <version>${nb-starter}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zjut.spring.boot</groupId>
+                <artifactId>nb-spring-boot-dependencies</artifactId>
+                <version>${nb-starter}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zjut.spring.boot</groupId>
+                <artifactId>nb-spring-boot-starter</artifactId>
+                <version>${nb-starter}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-context</artifactId>
+                <version>${spring.cloud.version}</version>
+            </dependency>
             <!--spring使用指定版本-->
             <dependency>
                 <groupId>org.springframework</groupId>

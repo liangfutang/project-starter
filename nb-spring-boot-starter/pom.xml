@@ -11,5 +11,15 @@
 
     <artifactId>nb-spring-boot-starter</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.zjut.spring.boot</groupId>
+            <artifactId>nb-spring-boot-autoconfigure</artifactId>
+        </dependency>
 
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-context</artifactId>
+        </dependency>
+    </dependencies>
 </project>
