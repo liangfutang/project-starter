@@ -16,6 +16,8 @@
     </modules>
 
     <properties>
+        <nb-starter>1.0.0-SNAPSHOT</nb-starter>
+
         <nb.logback.version>1.0.8</nb.logback.version>
 
         <spring.version>5.0.7.RELEASE</spring.version>
