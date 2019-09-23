@@ -17,7 +17,7 @@
             <dependency>
                 <groupId>com.zjut.spring.boot</groupId>
                 <artifactId>nb-spring-boot-starter-jdbc</artifactId>
-                <version>${nb-starter}</version>
+                <version>${nb-starter.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
