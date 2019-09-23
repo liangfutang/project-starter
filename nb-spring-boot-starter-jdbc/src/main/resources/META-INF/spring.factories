@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.ecarx.springboot.jdbc.condition.JdbcConfigure
+  com.zjut.spring.boot.jdbc.condition.JdbcConfigure

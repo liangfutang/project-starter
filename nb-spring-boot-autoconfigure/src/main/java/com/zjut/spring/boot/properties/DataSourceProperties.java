@@ -61,6 +61,6 @@ public class DataSourceProperties {
     /**
      * mapper接口包路径
      */
-    @Value("${mybatis.basePackage:com.ecarx.docking.biz.mapper}")
+    @Value("${mybatis.basePackage}")
     private String basePackage;
 }
