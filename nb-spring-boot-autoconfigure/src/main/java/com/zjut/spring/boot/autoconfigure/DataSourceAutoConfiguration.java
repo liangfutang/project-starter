@@ -14,6 +14,7 @@ import com.zjut.spring.boot.properties.DruidStatProperties;
 import com.zjut.spring.boot.properties.DruidWebStatProperties;
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -131,6 +132,19 @@ public class DataSourceAutoConfiguration {
                 new PaginationInterceptor()
         });
         return sessionFactory.getObject();
+    }
+
+    /**
+     * MapperScannerConfigurer 在apollo之前初始化无法配置(使用apollo的时候需要注意,1.在接口mapper上加注解@Mapper。2.在启动类上加@MapperScan)
+     * @return
+     */
+//    @Bean
+//    @ConditionalOnMissingBean
+    public MapperScannerConfigurer mapperScannerConfigurer(){
+        MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
+        mapperScannerConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactory");
+        mapperScannerConfigurer.setBasePackage(dataSourceProperties.getBasePackage());
+        return mapperScannerConfigurer;
     }
 
     @Bean
