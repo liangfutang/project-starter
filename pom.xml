@@ -13,6 +13,7 @@
         <module>nb-spring-boot-starter</module>
         <module>nb-spring-boot-dependencies</module>
         <module>nb-spring-boot-starter-jdbc</module>
+        <module>nb-spring-boot-starter-rocketmq</module>
     </modules>
 
     <properties>
