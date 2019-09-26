@@ -81,5 +81,11 @@
             <artifactId>log4j-over-slf4j</artifactId>
             <version>1.7.25</version>
         </dependency>
+        <!--rocketMq-->
+        <dependency>
+            <groupId>com.zjut.mq.client</groupId>
+            <artifactId>client-rocketmq</artifactId>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 </project>
