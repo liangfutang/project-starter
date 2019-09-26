@@ -18,6 +18,10 @@
         </dependency>
 
         <!-- rocketmq相关的包       -->
+        <dependency>
+            <groupId>com.zjut.mq.client</groupId>
+            <artifactId>client-rocketmq</artifactId>
+        </dependency>
     </dependencies>
 
 

@@ -28,6 +28,7 @@
         <dubbo-version>2.7.3</dubbo-version>
         <mybatis.plus.version>3.0.6</mybatis.plus.version>
         <mysql.version>5.1.21</mysql.version>
+        <client-rocketmq.version>1.0-SNAPSHOT</client-rocketmq.version>
     </properties>
 
     <dependencyManagement>
@@ -115,6 +116,11 @@
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
                 <version>19.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zjut.mq.client</groupId>
+                <artifactId>client-rocketmq</artifactId>
+                <version>${client-rocketmq.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
