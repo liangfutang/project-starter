@@ -34,18 +34,19 @@ public class RocketMqClientBean implements ApplicationContextAware {
     private Map<String, ConsumerHandler> handlerMap;
 
     void init() {
-        // 设置开关
+        // 设置开关(基本用在开发阶段)
         if (DevParamUtil.isCloseRocketMqTopic()) {
             logger.info("未监听线上的rocketMQ消息...");
             return;
         }
-        // 设置群组
+        // 设置群组(基本用在开发阶段)
         String groupId = rocketMqProperties.getConsumerGroup();
         if (StringUtils.isNotEmpty(DevParamUtil.getRocketmqConsumerGroupid())) {
             groupId = DevParamUtil.getRocketmqConsumerGroupid();
             logger.info("rocketMQ使用自定义的groupId:" + groupId);
         }
         if (!CollectionUtils.isEmpty(handlerMap)) {
+            // 预先设置的需要订阅的topic，如果没有预先设定则无法定于
             String consumerTopicString = rocketMqProperties.getConsumerTopic();
             String[] consumerTopicList = consumerTopicString.split(",");
 
