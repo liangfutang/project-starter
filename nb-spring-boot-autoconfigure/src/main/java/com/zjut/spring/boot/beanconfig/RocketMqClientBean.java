@@ -4,7 +4,7 @@ import com.zjut.common.utils.DevParamUtil;
 import com.zjut.mq.client.core.ConsumerHandler;
 import com.zjut.mq.client.core.MqConsumerConfigBean;
 import com.zjut.mq.client.rocketmq.RocketMqPushConsumerClient;
-import com.zjut.spring.boot.annotation.EcarxConsumer;
+import com.zjut.spring.boot.annotation.ZjutConsumer;
 import com.zjut.spring.boot.enums.SubscribeType;
 import com.zjut.spring.boot.properties.RocketMqProperties;
 import org.apache.commons.lang3.StringUtils;
@@ -91,7 +91,7 @@ public class RocketMqClientBean implements ApplicationContextAware {
                 if (StringUtils.isNotBlank(tagList)) {
                     // 4.1 判断topic订阅类型
                     for (Object key : newHandlerMap.keySet()) {
-                        EcarxConsumer annotation = newHandlerMap.get(key).getClass().getAnnotation(EcarxConsumer.class);
+                        ZjutConsumer annotation = newHandlerMap.get(key).getClass().getAnnotation(ZjutConsumer.class);
                         if (Objects.isNull(annotation)) {
                             subscribeType.add(SubscribeType.common);
                         } else {
