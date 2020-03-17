@@ -14,10 +14,11 @@
         <module>factory-spring-boot-dependencies</module>
         <module>factory-spring-boot-starter-jdbc</module>
         <module>factory-spring-boot-starter-rocketmq</module>
+        <module>factory-spring-boot-starter-dubbo</module>
     </modules>
 
     <properties>
-        <factory-starter.version>1.0.0-SNAPSHOT</factory-starter.version>
+        <factory-starter>1.0.0-SNAPSHOT</factory-starter>
 
         <factory.logback.version>1.0.8</factory.logback.version>
 
@@ -37,12 +38,12 @@
             <dependency>
                 <groupId>com.zjut.spring.boot</groupId>
                 <artifactId>factory-spring-boot-autoconfigure</artifactId>
-                <version>${factory-starter.version}</version>
+                <version>${factory-starter}</version>
             </dependency>
             <dependency>
                 <groupId>com.zjut.spring.boot</groupId>
                 <artifactId>factory-spring-boot-starter</artifactId>
-                <version>${factory-starter.version}</version>
+                <version>${factory-starter}</version>
             </dependency>
 
 
@@ -122,6 +123,26 @@
                 <artifactId>client-rocketmq</artifactId>
                 <version>${client-rocketmq.version}</version>
             </dependency>
+            <!--dubbo 开始-->
+            <!-- Apache Dubbo  -->
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo</artifactId>
+                <version>${dubbo-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-dependencies-zookeeper</artifactId>
+                <version>${dubbo-version}</version>
+                <type>pom</type>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-log4j12</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!--dubbo 结束-->
         </dependencies>
     </dependencyManagement>
 

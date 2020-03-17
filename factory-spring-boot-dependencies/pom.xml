@@ -17,7 +17,12 @@
             <dependency>
                 <groupId>com.zjut.spring.boot</groupId>
                 <artifactId>factory-spring-boot-starter-jdbc</artifactId>
-                <version>${factory-starter.version}</version>
+                <version>${factory-starter}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zjut.spring.boot</groupId>
+                <artifactId>factory-spring-boot-starter-dubbo</artifactId>
+                <version>${factory-starter}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
