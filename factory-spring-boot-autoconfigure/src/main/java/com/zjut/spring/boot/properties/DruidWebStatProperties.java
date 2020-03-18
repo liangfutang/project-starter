@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Data
 @Component
 //@ConfigurationProperties(prefix = "test")
-@PropertySource(value = "classpath:properties/datasource.properties", encoding = "UTF-8")
+@PropertySource(value = "classpath:properties/datasource.properties", encoding = "UTF-8", ignoreResourceNotFound = true)
 public class DruidWebStatProperties {
     /**
      * Enable WebStatFilter.

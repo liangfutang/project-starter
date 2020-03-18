@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @Data
 @Component
 //@ConfigurationProperties(prefix = "test")
-@PropertySource(value = "classpath:properties/datasource.properties", encoding = "UTF-8")
+@PropertySource(value = "classpath:properties/datasource.properties", encoding = "UTF-8", ignoreResourceNotFound = true)
 public class DataSourceProperties {
     //  连接数据库的url
     @Value("${spring.datasource.url}")

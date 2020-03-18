@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 //@RefreshScope
 @Data
 @Component
-@PropertySource(value = "classpath:properties/rocketmq.properties", encoding = "UTF-8")
+@PropertySource(value = "classpath:properties/rocketmq.properties", encoding = "UTF-8", ignoreResourceNotFound = true)
 public class RocketMqProperties {
     @Value("${rocketmq.addr}")
     private String rocketmqAddr;

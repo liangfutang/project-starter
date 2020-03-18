@@ -31,3 +31,9 @@
 </dependency>
 ```
 > 2. 在启动类上添加注解`@DubboComponentScan(basePackages = {"com.zjut.factory.provider.openservice.service.impl"})`
+
+# 没有引用所有starter模块的情况下，应用方启动报错
+## 起因
+> starter集成的相关模块都是需要每个服务各自的特定参数的，可以通过apollo、cloud配置中心等，本架构设计通过在服务中添加配置文件properties方式，然后在starter中读取。本次starter集成dubbo模块后，在factory-provider服务启动正常，因为该服务中有jdbc和dubbo的相关服务配置文件，所以，启动正常。在factory-consumer集成starter的dubbo模块前启动了一次，发现报错了，log提示找不到dubbo配置文件。
+## 修改方案
+> 在寻找配置文件的注解`@PropertySource`中添加配置属性`ignoreResourceNotFound = true`，在找不到该文件的时候不会报错。再次启动factory-consumer的时候不再报错了
