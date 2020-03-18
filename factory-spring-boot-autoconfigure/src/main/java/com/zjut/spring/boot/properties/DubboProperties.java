@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  */
 @Data
 @Component
-@PropertySource(value = "classpath:properties/dubbo.properties", encoding = "UTF-8")
+@PropertySource(value = "classpath:properties/dubbo.properties", encoding = "UTF-8", ignoreResourceNotFound = true)
 public class DubboProperties {
 
     @Value("${spring.application.name}")
