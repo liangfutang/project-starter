@@ -36,10 +36,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author jsk
- * @Date 2019/1/11 9:37
- */
 @Configuration
 @ConditionalOnClass(EmbeddedDatabaseType.class)
 @Import({DataSourceProperties.class,

@@ -11,10 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * @author: jsk
- * @date: 2019/8/14 19:45
- */
 public class PrintUrlFilter extends OncePerRequestFilter {
     private final static Logger logger = LoggerFactory.getLogger(DataSourceAutoConfiguration.class);
 

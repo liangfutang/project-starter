@@ -16,10 +16,6 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.servlet.Filter;
 
-/**
- * @author jsk
- * @Date 2019/2/27 9:35
- */
 @Configuration
 @ConditionalOnClass(ConfigurableWebServerFactory.class)
 @AutoConfigureBefore(ServletWebServerFactoryAutoConfiguration.class)
