@@ -7,8 +7,8 @@ import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
 import com.alibaba.druid.wall.WallFilter;
-import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
+import com.zjut.spring.boot.interceptor.FactoryPaginationInterceptor;
 import com.zjut.spring.boot.properties.DataSourceProperties;
 import com.zjut.spring.boot.properties.DruidStatProperties;
 import com.zjut.spring.boot.properties.DruidWebStatProperties;
@@ -116,6 +116,11 @@ public class DataSourceAutoConfiguration {
     }
 
     @Bean
+    public FactoryPaginationInterceptor getFactoryPaginationInterceptor() {
+        return new FactoryPaginationInterceptor();
+    }
+
+    @Bean
     @ConditionalOnMissingBean
     @ConditionalOnProperty(name = "mybatis.mapperLocations")
     public SqlSessionFactory sqlSessionFactory(DataSource dataSource)
@@ -125,7 +130,8 @@ public class DataSourceAutoConfiguration {
         sessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver()
                 .getResources(dataSourceProperties.getMapperLocations()));
         sessionFactory.setPlugins(new Interceptor[]{
-                new PaginationInterceptor()
+                // 自定义的插件，检查查询的SQL，如果没有limit则加上，并且限制单次查询的最大数量
+                this.getFactoryPaginationInterceptor()
         });
         return sessionFactory.getObject();
     }
