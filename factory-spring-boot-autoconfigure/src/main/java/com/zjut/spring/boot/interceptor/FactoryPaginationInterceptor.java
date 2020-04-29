@@ -14,6 +14,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.DialectFactory;
 import com.baomidou.mybatisplus.extension.plugins.pagination.DialectModel;
 import com.baomidou.mybatisplus.extension.toolkit.JdbcUtils;
 import com.baomidou.mybatisplus.extension.toolkit.SqlParserUtils;
+import com.zjut.spring.boot.properties.DataSourceProperties;
 import org.apache.ibatis.executor.statement.StatementHandler;
 import org.apache.ibatis.mapping.BoundSql;
 import org.apache.ibatis.mapping.MappedStatement;
@@ -49,12 +50,16 @@ public class FactoryPaginationInterceptor extends AbstractSqlParserHandler imple
 
     private final static Logger logger = LoggerFactory.getLogger(FactoryPaginationInterceptor.class);
 
+    // 限制单次查询的数量
+    private Integer limitCount;
+
     private ISqlParser sqlParser;
     private boolean overflow = false;
     private String dialectType;
     private String dialectClazz;
 
-    public FactoryPaginationInterceptor() {
+    public FactoryPaginationInterceptor(DataSourceProperties dataSourceProperties) {
+        this.limitCount = dataSourceProperties.getLimitCount();
     }
 
     public static String concatOrderBy(String originalSql, IPage page, boolean orderBy) {
@@ -126,8 +131,8 @@ public class FactoryPaginationInterceptor extends AbstractSqlParserHandler imple
 
                 String buildSql = concatOrderBy(originalSql, page, orderBy);
                 // 如果传进来的单次查询数量大于阈值，则修改传进来的最大阈值
-                if (page.getSize() > 500) {
-                    page.setSize(500);
+                if (page.getSize() > limitCount) {
+                    page.setSize(limitCount);
                 }
                 DialectModel model = DialectFactory.buildPaginationSql(page, buildSql, dbType, this.dialectClazz);
                 Configuration configuration = mappedStatement.getConfiguration();
@@ -169,13 +174,13 @@ public class FactoryPaginationInterceptor extends AbstractSqlParserHandler imple
             String sqlWithNolimit = originalSql.substring(0, sqlToLowerCase.lastIndexOf("limit"));
             String afterLimit = originalSql.substring(sqlToLowerCase.lastIndexOf("limit") + 5, sqlToLowerCase.length());
             String[] offsetAndSize = afterLimit.split(",");
-            if (offsetAndSize.length == 1 && Integer.parseInt(offsetAndSize[0])>=500) {
-                originalSql = concatSql(sqlWithNolimit, "0", "500");
-            } else if(offsetAndSize.length == 2 && Integer.parseInt(offsetAndSize[1])>=500) {
-                originalSql = concatSql(sqlWithNolimit, offsetAndSize[0], "500");
+            if (offsetAndSize.length == 1 && Integer.parseInt(offsetAndSize[0])>=limitCount) {
+                originalSql = concatSql(sqlWithNolimit, "0", limitCount.toString());
+            } else if(offsetAndSize.length == 2 && Integer.parseInt(offsetAndSize[1])>=limitCount) {
+                originalSql = concatSql(sqlWithNolimit, offsetAndSize[0], limitCount.toString());
             }
         } else {
-            originalSql += " limit 0,500";
+            originalSql += " limit 0," + limitCount.toString();
         }
         return originalSql;
     }

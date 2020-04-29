@@ -63,4 +63,7 @@ public class DataSourceProperties {
      */
     @Value("${mybatis.basePackage}")
     private String basePackage;
+
+    @Value("${mybatis.limit.count:500}")
+    private Integer limitCount;
 }
