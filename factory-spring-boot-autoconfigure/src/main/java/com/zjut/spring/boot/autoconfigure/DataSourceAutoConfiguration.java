@@ -116,6 +116,11 @@ public class DataSourceAutoConfiguration {
     }
 
     @Bean
+    public FactoryPaginationInterceptor getFactoryPaginationInterceptor() {
+        return new FactoryPaginationInterceptor();
+    }
+
+    @Bean
     @ConditionalOnMissingBean
     @ConditionalOnProperty(name = "mybatis.mapperLocations")
     public SqlSessionFactory sqlSessionFactory(DataSource dataSource)
@@ -126,7 +131,7 @@ public class DataSourceAutoConfiguration {
                 .getResources(dataSourceProperties.getMapperLocations()));
         sessionFactory.setPlugins(new Interceptor[]{
                 // 自定义的插件，检查查询的SQL，如果没有limit则加上，并且限制单次查询的最大数量
-                new FactoryPaginationInterceptor(dataSourceProperties)
+                this.getFactoryPaginationInterceptor()
         });
         return sessionFactory.getObject();
     }
