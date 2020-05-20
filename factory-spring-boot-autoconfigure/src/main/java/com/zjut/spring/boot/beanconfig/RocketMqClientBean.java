@@ -106,6 +106,9 @@ public class RocketMqClientBean implements ApplicationContextAware {
                                 case orderly:
                                     subscribeType.add(SubscribeType.orderly);
                                     break;
+                                case broadcasting:
+                                    subscribeType.add(SubscribeType.broadcasting);
+                                    break;
                                 default:
                                     subscribeType.add(SubscribeType.common);
                                     break;
@@ -129,6 +132,9 @@ public class RocketMqClientBean implements ApplicationContextAware {
                             break;
                         case orderly:
                             rocketMqPushConsumerClient.subscribeOrderly(tagList.toString(), newHandlerMap);
+                            break;
+                        case broadcasting:
+                            rocketMqPushConsumerClient.subscribeBroadcasting(tagList.toString(), newHandlerMap);
                             break;
                         default:
                             logger.info("topic订阅类型出现异常,请检查topic:" + consumerTopic);

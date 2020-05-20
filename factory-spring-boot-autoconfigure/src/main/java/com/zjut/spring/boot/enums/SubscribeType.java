@@ -5,7 +5,7 @@ package com.zjut.spring.boot.enums;
  */
 public enum SubscribeType {
     /**
-     * 订阅类型
+     * 普通订阅类型
      */
     common,
     /**
@@ -15,5 +15,9 @@ public enum SubscribeType {
     /**
      * 订阅日志类消息，格式比较自由，返回字符串
      */
-    oneWay;
+    oneWay,
+    /**
+     * 广播模式消费
+     */
+    broadcasting;
 }
