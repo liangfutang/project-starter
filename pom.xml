@@ -173,4 +173,34 @@
             </plugin>
         </plugins>
     </build>
+
+    <!--下载的仓库-->
+    <repositories>
+        <repository>
+            <id>rdc-releases</id>
+            <url>https://repo.rdc.aliyun.com/repository/134225-release-yPqXef/</url>
+        </repository>
+        <repository>
+            <id>rdc-snapshots</id>
+            <url>https://repo.rdc.aliyun.com/repository/134225-snapshot-0sOQAO/</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>
+                    interval:1
+                </updatePolicy>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <!--上传到该库中-->
+    <distributionManagement>
+        <repository>
+            <id>rdc-releases</id>
+            <url>https://repo.rdc.aliyun.com/repository/134225-release-yPqXef/</url>
+        </repository>
+        <snapshotRepository>
+            <id>rdc-snapshots</id>
+            <url>https://repo.rdc.aliyun.com/repository/134225-snapshot-0sOQAO/</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
