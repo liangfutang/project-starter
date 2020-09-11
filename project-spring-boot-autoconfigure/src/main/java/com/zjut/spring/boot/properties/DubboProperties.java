@@ -28,7 +28,7 @@ public class DubboProperties {
     /**
      * Dubbo的线程池数量，默认的是200个
      */
-    @Value("${dubbo.protocol.threads}")
+    @Value("${dubbo.protocol.threads:200}")
     private Integer protocolThreads;
 
     /**
