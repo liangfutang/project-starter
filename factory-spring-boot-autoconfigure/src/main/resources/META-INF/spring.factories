@@ -1,5 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.zjut.spring.boot.autoconfigure.DataSourceAutoConfiguration,\
-  com.zjut.spring.boot.autoconfigure.NbStarterAutoConfiguration,\
-  com.zjut.spring.boot.autoconfigure.WebConfiguration,\
-  com.zjut.spring.boot.autoconfigure.DubboAutoConfiguration

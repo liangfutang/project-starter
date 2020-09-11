@@ -5,22 +5,22 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.zjut.spring.boot</groupId>
-    <artifactId>factory-starter</artifactId>
+    <artifactId>project-starter</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0-SNAPSHOT</version>
     <modules>
-        <module>factory-spring-boot-autoconfigure</module>
-        <module>factory-spring-boot-starter</module>
-        <module>factory-spring-boot-dependencies</module>
-        <module>factory-spring-boot-starter-jdbc</module>
-        <module>factory-spring-boot-starter-rocketmq</module>
-        <module>factory-spring-boot-starter-dubbo</module>
+        <module>project-spring-boot-autoconfigure</module>
+        <module>project-spring-boot-starter</module>
+        <module>project-spring-boot-dependencies</module>
+        <module>project-spring-boot-starter-jdbc</module>
+        <module>project-spring-boot-starter-rocketmq</module>
+        <module>project-spring-boot-starter-dubbo</module>
     </modules>
 
     <properties>
-        <factory-starter>1.0.0-SNAPSHOT</factory-starter>
+        <project-starter>1.0.0-SNAPSHOT</project-starter>
 
-        <factory.logback.version>1.0.8</factory.logback.version>
+        <project.logback.version>1.0.8</project.logback.version>
 
         <spring.version>5.0.7.RELEASE</spring.version>
         <spring.boot.version>2.0.3.RELEASE</spring.boot.version>
@@ -37,13 +37,13 @@
             <!-- 控制版本 -->
             <dependency>
                 <groupId>com.zjut.spring.boot</groupId>
-                <artifactId>factory-spring-boot-autoconfigure</artifactId>
-                <version>${factory-starter}</version>
+                <artifactId>project-spring-boot-autoconfigure</artifactId>
+                <version>${project-starter}</version>
             </dependency>
             <dependency>
                 <groupId>com.zjut.spring.boot</groupId>
-                <artifactId>factory-spring-boot-starter</artifactId>
-                <version>${factory-starter}</version>
+                <artifactId>project-spring-boot-starter</artifactId>
+                <version>${project-starter}</version>
             </dependency>
 
 
