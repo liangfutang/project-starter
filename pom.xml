@@ -22,7 +22,7 @@
 
         <project.logback.version>1.0.8</project.logback.version>
 
-        <spring.version>5.0.7.RELEASE</spring.version>
+        <spring.version>5.0.19.RELEASE</spring.version>
         <spring.boot.version>2.0.3.RELEASE</spring.boot.version>
         <spring.cloud.version>2.0.1.RELEASE</spring.cloud.version>
         <druid.version>1.1.16</druid.version>
